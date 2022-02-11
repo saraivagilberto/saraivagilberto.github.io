@@ -1,4 +1,4 @@
-import { registerObserver } from './db.js';
+import { registerObserver } from 'db.js';
 'use strict';
 
 export class StockPosition extends React.Component {
