@@ -174,36 +174,38 @@ export class StockList extends React.Component {
   componentDidMount() {
     const curr = this
     registerObserver((data) => {
-      var symbols = data.symbols ?? data;
-      var performances = data.performances ?? [];
-      const last = this.state.last ?? {}
-      Object.keys(symbols).map((stock) => {
-        return Object.keys(symbols[stock]).map((target) => {
-          if (!last[stock]) {
-            last[stock] = {}
-          }
-
-          if (!last[stock][target]) {
-            last[stock][target] = {
-              amount: 0,
-              curr: 0,
-              hold: 0,
-              state: 0,
-              target: 0,
-              upt: 0
+      if (data) {
+        var symbols = data.symbols ?? data;
+        var performances = data.performances ?? [];
+        const last = this.state.last ?? {}
+        Object.keys(symbols).map((stock) => {
+          return Object.keys(symbols[stock]).map((target) => {
+            if (!last[stock]) {
+              last[stock] = {}
             }
-          }
 
-          symbols[stock][target].performance = performances[stock][target]
-          Object.keys(symbols[stock][target]).map((prop) => {
-            if (last[stock][target][prop] != symbols[stock][target][prop]) {
-              last[stock][target][prop] = symbols[stock][target][prop]
+            if (!last[stock][target]) {
+              last[stock][target] = {
+                amount: 0,
+                curr: 0,
+                hold: 0,
+                state: 0,
+                target: 0,
+                upt: 0
+              }
             }
-          });
+
+            symbols[stock][target].performance = performances[stock][target]
+            Object.keys(symbols[stock][target]).map((prop) => {
+              if (last[stock][target][prop] != symbols[stock][target][prop]) {
+                last[stock][target][prop] = symbols[stock][target][prop]
+              }
+            });
+          })
         })
-      })
-      
-      curr.setState({ stocks: symbols, last: last })
+        
+        curr.setState({ stocks: symbols, last: last })
+      }
     })
   }
 

@@ -3,12 +3,12 @@
     import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js";
   
     const firebaseConfig = {
-      apiKey: "AIzaSyDBSly_o-P17at1UOHsOnD4Qpy5nM4_5TA",
-      authDomain: "mover-219a0.firebaseapp.com",
-      projectId: "mover-219a0",
-      storageBucket: "mover-219a0.appspot.com",
-      messagingSenderId: "180409060407",
-      appId: "1:180409060407:web:02812a165f8b194081c3b2"
+      apiKey: "AIzaSyDDcR9ntnUJWe4GP74RfsEWfxaThclEZFo",
+      authDomain: "mover-82a42.firebaseapp.com",
+      projectId: "mover-82a42",
+      storageBucket: "mover-82a42.appspot.com",
+      messagingSenderId: "944636393113",
+      appId: "1:944636393113:web:9fe26c3126f90e80d6aa08"
     };
   
     // Initialize Firebase
